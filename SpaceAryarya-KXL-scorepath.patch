@@ -1,0 +1,55 @@
+diff -Nur SpaceAryarya-KXL-1.0.2.orig/configure.in SpaceAryarya-KXL-1.0.2/configure.in
+--- SpaceAryarya-KXL-1.0.2.orig/configure.in	Fri Dec  7 15:03:07 2001
++++ SpaceAryarya-KXL-1.0.2/configure.in	Mon May 12 15:00:42 2003
+@@ -29,11 +29,18 @@
+         BMP_PATH=$prefix/share/SpaceAryarya/bmp
+         WAV_PATH=$prefix/share/SpaceAryarya/wav
+ fi
++if test "x$localstatedir" = "xNONE"; then
++	SCORE_PATH=/var/games
++else
++	SCORE_PATH=$localstatedir/games
++fi
+ AC_DEFINE_UNQUOTED(DATA_PATH,"$DATA_PATH")
++AC_DEFINE_UNQUOTED(SCORE_PATH,"$SCORE_PATH")
+ AC_DEFINE_UNQUOTED(BMP_PATH,"$BMP_PATH")
+ AC_DEFINE_UNQUOTED(WAV_PATH,"$WAV_PATH")
+ AC_DEFINE_UNQUOTED(TITLE,"$PACKAGE $VERSION")
+ AC_SUBST(DATA_PATH)
++AC_SUBST(SCORE_PATH)
+ AC_SUBST(BMP_PATH)
+ AC_SUBST(WAV_PATH)
+ 
+diff -Nur SpaceAryarya-KXL-1.0.2.orig/data/Makefile.am SpaceAryarya-KXL-1.0.2/data/Makefile.am
+--- SpaceAryarya-KXL-1.0.2.orig/data/Makefile.am	Wed Aug 29 15:00:02 2001
++++ SpaceAryarya-KXL-1.0.2/data/Makefile.am	Mon May 12 15:01:25 2003
+@@ -2,5 +2,6 @@
+ data_DATA  = stage1.dat stage2.dat
+ EXTRA_DIST = stage1.dat stage2.dat .score
+ 
+-install:
+-	$(INSTALL) -c -m 666 ./.score $(DESTDIR)$(DATA_PATH)
++install-data-local:
++	$(INSTALL) -d -m 755 $(DESTDIR)$(SCORE_PATH)
++	$(INSTALL) -c -m 666 ./.score $(DESTDIR)$(SCORE_PATH)/SpaceAryarya.score
+diff -Nur SpaceAryarya-KXL-1.0.2.orig/src/ranking.c SpaceAryarya-KXL-1.0.2/src/ranking.c
+--- SpaceAryarya-KXL-1.0.2.orig/src/ranking.c	Wed May 23 15:34:16 2001
++++ SpaceAryarya-KXL-1.0.2/src/ranking.c	Mon May 12 15:01:45 2003
+@@ -36,7 +36,7 @@
+   FILE *fp;
+   Uint16 i;
+ 
+-  if ((fp = fopen(DATA_PATH "/.score", "r"))) {
++  if ((fp = fopen(SCORE_PATH "/SpaceAryarya.score", "r"))) {
+     fscanf(fp, "%d", &(Root->HiScore));
+     for (i = 0; i < 5; i ++)
+       fscanf(fp, "%d %d %s",
+@@ -65,7 +65,7 @@
+   FILE *fp;
+   Uint16 i;
+ 
+-  if ((fp = fopen(DATA_PATH "/.score", "w"))) {
++  if ((fp = fopen(SCORE_PATH "/SpaceAryarya.score", "w"))) {
+     fprintf(fp, "%d\n", Root->HiScore);
+     for (i = 0; i < 5; i ++)
+       fprintf(fp, "%d %d %s\n",
