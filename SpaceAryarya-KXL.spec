@@ -26,6 +26,7 @@ Przewijana strzelanina 2D/3D.
 %patch -p1
 
 %build
+cp -f /usr/share/automake/config.sub .
 %{__aclocal}
 %{__autoconf}
 %{__automake}
