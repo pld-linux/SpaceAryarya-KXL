@@ -6,6 +6,7 @@ Release:	1
 License:	GPL
 Group:		X11/Applications/Games
 Source0:	http://kxl.hn.org/download/%{name}-%{version}.tar.gz
+# Source0-md5:	0c3666630eed179d9d3c0182b6358a6f
 Patch0:		%{name}-scorepath.patch
 URL:		http://kxl.hn.org/
 BuildRequires:	KXL-devel >= 1.1.1
