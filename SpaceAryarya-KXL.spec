@@ -38,7 +38,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc COPYING ChangeLog README
+%doc ChangeLog README
 %attr(755,root,root) %{_bindir}/spacearyarya
 %dir %{_datadir}/SpaceAryarya
 %dir %{_datadir}/SpaceAryarya/data
