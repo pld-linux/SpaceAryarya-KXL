@@ -8,8 +8,8 @@ Version:	1.0.2
 Release:	1
 License:	GPL
 Group:		X11/Applications/Games
-Source:		http://www2.mwnet.or.jp/~fc3srx7/download/%{name}-%{version}.tar.gz
-URL:		http://www2.mwnet.or.jp/~fc3srx7/
+Source:		http://kxl.hn.org/download/%{name}-%{version}.tar.gz
+URL:		http://kxl.hn.org/
 BuildRequires:	KXL-devel >= 1.1.1
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
