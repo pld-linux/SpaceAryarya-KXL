@@ -2,7 +2,7 @@ Summary:	Space Aryarya, a video-oriented game
 Summary(pl):	Space Aryarya - gra wideo
 Name:		SpaceAryarya-KXL
 Version:	1.0.2
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Applications/Games
 Source0:	http://kxl.hn.org/download/%{name}-%{version}.tar.gz
