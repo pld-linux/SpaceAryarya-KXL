@@ -13,8 +13,6 @@ URL:		http://kxl.hn.org/
 BuildRequires:	KXL-devel >= 1.1.1
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		_prefix		/usr/X11R6
-%define		_mandir		%{_prefix}/man
 
 %description
 2D/3D scroll shooting game.
