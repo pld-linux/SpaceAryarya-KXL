@@ -10,9 +10,9 @@ Source0:	http://kxl.hn.org/download/%{name}-%{version}.tar.gz
 Patch0:		%{name}-scorepath.patch
 URL:		http://kxl.hn.org/
 BuildRequires:	KXL-devel >= 1.1.1
+BuildRequires:	KXL >= 1.1.1
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	KXL >= 1.1.1
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -51,4 +51,4 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/SpaceAryarya/bmp
 %{_datadir}/SpaceAryarya/wav
 %{_datadir}/SpaceAryarya/data/*.dat
-%attr(664,root,games) %config(noreplace) %verify(not size mtime md5) /var/games/SpaceAryarya.score
+%attr(664,root,games) %config(noreplace) %verify(not md5 mtime size) /var/games/SpaceAryarya.score
