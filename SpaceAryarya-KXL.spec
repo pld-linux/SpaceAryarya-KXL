@@ -1,5 +1,5 @@
 Summary:	Space Aryarya, a video-oriented game
-Summary(pl):	Space Aryarya - gra wideo
+Summary(pl.UTF-8):   Space Aryarya - gra wideo
 Name:		SpaceAryarya-KXL
 Version:	1.0.2
 Release:	2
@@ -18,7 +18,7 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 2D/3D scroll shooting game.
 
-%description -l pl
+%description -l pl.UTF-8
 Przewijana strzelanina 2D/3D.
 
 %prep
