@@ -1,5 +1,5 @@
 Summary:	Space Aryarya, a video-oriented game
-Summary(pl.UTF-8):   Space Aryarya - gra wideo
+Summary(pl.UTF-8):	Space Aryarya - gra wideo
 Name:		SpaceAryarya-KXL
 Version:	1.0.2
 Release:	2
